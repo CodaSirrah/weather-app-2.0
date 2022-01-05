@@ -1,0 +1,26 @@
+html {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    width: 100%;
+}
+
+main {
+    height: 100vh;
+}
+
+.bg-image{
+    width: 100%;
+    position: relative;
+    background-image: url("./clouds.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.max-width {
+    max-width: 1700px;
+    margin: 0 auto;
+}

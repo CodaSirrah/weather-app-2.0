@@ -1,0 +1,46 @@
+h1 {
+    color: #DA849A;
+    margin-top: 50px;
+    font-size: 45px;
+    padding: 10px 0px;
+}
+
+.overflow {
+    overflow: auto;
+}
+
+.input-container {
+    display: block;
+    float: right;
+    margin-top: 50px;
+    padding: 0px 20px;
+    transition: opacity 0.8s linear;
+}
+
+label {
+    font-size: 1;
+    position: absolute;
+    margin-left: 5px;
+    margin-top: 2px;
+}
+
+input {
+    height: 20px;
+    width: 180px;
+    opacity: 1;
+    font-size: 14px;
+    border-radius: 7px;
+    margin-left: 3px;
+    background-color: white;
+    border: none;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+.hidden {
+    display: none;
+    visibility: hidden;
+}
+
+.visually-hidden {
+    opacity: 0;
+}

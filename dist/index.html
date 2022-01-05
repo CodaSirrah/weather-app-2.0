@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, 
+        user-scalable=no">
+    <meta charset="UTF-8" />
+    <title>Weather App 2</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <main class="bg-image">
+      <div class="max-width">
+        <div class="overflow">
+          <div class="input-container hidden visually-hidden">
+            <h1>Enter Your City</h1>
+            <label for="city">City</label>
+            <input type="text" for="city" name="city" class="city-input">
+          </div>
+        </div>
+        <section class="weather-container current">
+          <h3 class="align bold">Cardiff, Wales</h3>
+          <p class="align thin">As of 19:16 GMT</p>
+          <div class="current-weather">
+            <p class="current-temp align">1°</p>
+            <img src="http://openweathermap.org/img/wn/04d@2x.png" class="current-icon"> 
+          </div>
+          <p class="current-description align">A few clouds</p>
+        </section>
+        <section class="weather-container todays">
+          <div class="daily-info">
+            <p class="align bold">Todays forecast for Truro, 'GB'</p>
+          </div>
+          <div class="time-of-day">
+            <h3>Time-of-Day:</h3>
+            <p>Temperature:</p>
+            <p class="feels-like">Feels Like:</p>
+          </div>
+            <div class="time-of-day">
+              <h3>Morning</p>
+              <p>19.5°</p>
+              <p class="feels-like">15°</p>
+            </div>
+            <div class="time-of-day">
+              <h3>Afternoon</p>
+              <p>16°</p>
+              <p class="feels-like">14°</p>
+            </div>
+            <div class="time-of-day">
+              <h3>Evening</p>
+              <p>12°</p>
+              <p class="feels-like">9°</p>
+            </div>
+            <div class="time-of-day end">
+              <h3>Night</p>
+              <p>8°</p>
+              <p class="feels-like">6°</p>
+            </div>
+        </section>
+      </div>
+    </main>
+    <script src="bundle.js"></script>
+  </body>
+</html>
