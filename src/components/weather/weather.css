@@ -1,7 +1,7 @@
 .weather-container {
-    width: 40%;
+    width: 650px;
     height: 300px;
-    margin: 10px 0px;
+    margin: 60px 0px 0px 0px;
     box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
     border: 1px solid black;
     border-radius: 5px;
@@ -49,10 +49,10 @@ h3.align.bold {
     height: 120px;
 }
 
-.todays {
+.today {
     display: grid;
     grid-template-columns: repeat(5, 20%);
-    grid-template-rows: 30% 90%;
+    grid-template-rows: 20% 50% 30%;
 }
 
 .todays > p {
@@ -73,17 +73,37 @@ h3.align.bold {
 .time-of-day {
     grid-row: 2; 
     text-align: center;
-    border-right: 1px solid black;
-    height: 56%;
+    height: 100%;
     font-size: 20px;
-    margin-top: 0%;
+    margin-top: 25%;
+}
+
+.time-of-day h3 {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    padding: 20px 0px;
 }
 
 .time-of-day p {
-    text-align: center;
-    margin: 40px 0px;
+    padding: 20px 0px;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
 }
 
 .end {
     border-right: none;
+}
+
+.additional-today {
+    grid-row: 3;
+    grid-column: span 5;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+}
+
+strong {
+    font-weight: 700;
 }

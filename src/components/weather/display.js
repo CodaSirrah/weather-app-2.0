@@ -3,9 +3,8 @@ import getTime from "../input/date";
 
 // Selectors
 const weatherDataCurrent = document.querySelector(".weather-container.current");
-// const weatherData = document.querySelector(".weather-data");
-
-console.log(weatherDataCurrent);
+const timeOfDay = document.querySelectorAll(".time-of-day");
+const additional = document.querySelector(".additional-today");
 
 const convertCelsius = (f) => {
   let c = (f - 32) * (5 / 9);
@@ -16,8 +15,6 @@ const convertFarenheit = (c) => {
   let f = c * (5 / 9) + 32;
   return Math.round(f);
 };
-
-let x = "a good day";
 
 const capitalise = (desc) => {
   let newSentence = "";
@@ -31,7 +28,7 @@ const capitalise = (desc) => {
         : (newWord += word.charAt(i));
     }
     newSentence += newWord;
-    if (index !== x.length - 1) {
+    if (index !== desc.length - 1) {
       newSentence += " ";
     }
   });
@@ -39,6 +36,15 @@ const capitalise = (desc) => {
 };
 
 const weatherDisplayModule = (() => {
+  async function showTime(offset) {
+    try {
+      let time = await getTime(offset);
+      weatherDataCurrent.children[1].innerHTML = `As of ${time}`;
+    } catch {
+      console.log("err");
+    }
+  }
+
   const displayCurrent = (target, offset) => {
     const place = { city: target.city, country: target.country };
     const current = target.current;
@@ -53,20 +59,26 @@ const weatherDisplayModule = (() => {
     showTime(offset);
   };
 
-  async function showTime(offset) {
-    try {
-      let time = await getTime(offset);
-      weatherDataCurrent.children[1].innerHTML = `As of ${time}`;
-    } catch {
-      console.log("err");
-    }
-  }
-  const displayDaily = (target) => {
-    const daily = target.daily;
-    for (let x = 0; x < target.length; x += 1) {}
+  const displayToday = (target) => {
+    const today = target.daily[0];
+    console.log(today.precipitation);
+    console.log(additional);
+    timeOfDay[1].children[1].innerHTML =
+      today.temperature.morn + "<strong>°</strong>";
+    timeOfDay[2].children[1].innerHTML =
+      today.temperature.day + "<strong>°</strong>";
+    timeOfDay[3].children[1].innerHTML =
+      today.temperature.eve + "<strong>°</strong>";
+    timeOfDay[4].children[1].innerHTML =
+      today.temperature.night + "<strong>°</strong>";
+    additional.children[0].innerHTML = `Humidity: <strong>${today.humidity}%</strong>`;
+    today.precipitation === undefined
+      ? (additional.children[1].innerHTML = `Precipitation: <strong>0mm</strong>`)
+      : (additional.children[1].innerHTML = `Precipitation: <strong>${today.precipitation}mm</strong>`);
+    additional.children[2].innerHTML = `Wind Speed: <strong>${today.windSpeed}mph</strong>`;
   };
 
-  return { displayCurrent, displayDaily };
+  return { displayCurrent, displayToday };
 })();
 
 export default weatherDisplayModule;
