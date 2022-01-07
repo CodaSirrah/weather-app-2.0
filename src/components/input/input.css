@@ -1,5 +1,6 @@
 h1 {
-    color: #DA849A;
+    font-family: 'Merriweather', serif;
+    color: #e95cfc9d;
     margin-top: 50px;
     font-size: 45px;
     padding: 10px 0px;
@@ -11,10 +12,11 @@ h1 {
 
 .input-container {
     display: block;
-    float: right;
+    float: left;
     margin-top: 50px;
     padding: 0px 20px;
     transition: opacity 0.8s linear;
+    height: 140px;
 }
 
 label {
@@ -29,18 +31,14 @@ input {
     width: 180px;
     opacity: 1;
     font-size: 14px;
-    border-radius: 7px;
+    border-radius: 4px;
     margin-left: 3px;
     background-color: white;
     border: none;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    
+    outline: none;
 }
 
-.hidden {
-    display: none;
-    visibility: hidden;
-}
-
-.visually-hidden {
-    opacity: 0;
+.outline{
+    outline: 2px solid #002A32;
 }

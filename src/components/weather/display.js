@@ -1,10 +1,12 @@
 // JS Imports
+import { doc } from "prettier";
 import getTime from "../input/date";
 
 // Selectors
 const weatherDataCurrent = document.querySelector(".weather-container.current");
 const timeOfDay = document.querySelectorAll(".time-of-day");
 const additional = document.querySelector(".additional-today");
+const weatherContainers = document.querySelectorAll(".weather-container");
 
 const convertCelsius = (f) => {
   let c = (f - 32) * (5 / 9);
@@ -78,7 +80,16 @@ const weatherDisplayModule = (() => {
     additional.children[2].innerHTML = `Wind Speed: <strong>${today.windSpeed}mph</strong>`;
   };
 
-  return { displayCurrent, displayToday };
+  const showContainers = () => {
+    weatherContainers.forEach((container) => {
+      container.classList.remove("hidden");
+      window.setTimeout(() => {
+        container.classList.remove("visually-hidden");
+      }, 20);
+    });
+  };
+
+  return { displayCurrent, displayToday, showContainers };
 })();
 
 export default weatherDisplayModule;
