@@ -24,7 +24,6 @@ const loadInput = () => {
 loadInput();
 
 document.addEventListener("click", (e) => {
-  console.log(e.target);
   if (e.target !== input) {
     input.classList.remove("outline");
   } else {

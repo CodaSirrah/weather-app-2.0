@@ -6,6 +6,8 @@
     border: 1px solid rgb(117, 106, 146);
     border-radius: 1px;
     background-color: rgba(255, 255, 255, 0.582);
+    grid-column: 1;
+    grid-row: inherit;
 }
 
  .align {
@@ -110,4 +112,73 @@ p.end {
 
 strong {
     font-weight: 700;
+}
+
+.weather-container-daily {
+    width: 650px;
+    height: 655px;
+    box-shadow: rgba(8, 8, 8, 0.5) 0px 2px 4px 0px inset;
+    border: 1px solid rgb(117, 106, 146);
+    border-radius: 1px;
+    background-color: rgba(255, 255, 255, 0.582);
+    grid-column: 2;
+    grid-row: 2 / span 2;
+    margin: 30px 0px;
+}
+
+.days-container{
+    display: grid;
+    height: 100%;
+    width: 100%;
+    grid-template-rows: repeat(7, 40%);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.days {
+    height: 100%;
+    width: 90%;
+    margin: 0 auto;
+    background-color: rgba(160, 160, 160, 0.282);
+    grid-column: auto;
+    display: flex;  
+}
+
+.offcolor {
+    background-color: rgb(27, 27, 27, 0.382);
+}
+
+.day-name-container {
+    position: relative;
+}
+
+.day-name {
+    padding: 20px 4px;
+    font-size: 40px;
+    opacity: 20%;
+    user-select: none;
+    z-index: 0;
+    position: absolute;
+}
+
+.days-data {
+    z-index: 2;
+    margin: 0 auto;
+}
+
+.days-temperature {
+    margin-top: 20px;
+    font-size: 32px !important;
+    font-weight: 700;
+}
+
+.days-data p {
+    font-size: 18px;
+    padding: 4px 0px;
+    text-align: center;
+}
+
+.days-data img {
+    margin-top: -15px;
+    margin-bottom: -18px;
 }

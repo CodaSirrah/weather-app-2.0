@@ -1,12 +1,18 @@
 // JS Imports
 import { doc } from "prettier";
-import getTime from "../input/date";
+import getTimeAndDay from "../input/date";
 
 // Selectors
 const weatherDataCurrent = document.querySelector(".weather-container.current");
 const timeOfDay = document.querySelectorAll(".time-of-day");
 const additional = document.querySelector(".additional-today");
 const weatherContainers = document.querySelectorAll(".weather-container");
+const daysTemperature = document.querySelectorAll(".days-temperature");
+const daysIcon = document.querySelectorAll(".days-icon");
+const daysHumidity = document.querySelectorAll(".days-humidity");
+const daysPrecipitation = document.querySelectorAll(".days-precipitation");
+const daysWindSpeed = document.querySelectorAll(".days-wind-speed");
+const dayNames = document.querySelectorAll(".day-name");
 
 const convertCelsius = (f) => {
   let c = (f - 32) * (5 / 9);
@@ -38,12 +44,11 @@ const capitalise = (desc) => {
 };
 
 const weatherDisplayModule = (() => {
-  async function showTime(offset) {
-    try {
-      let time = await getTime(offset);
-      weatherDataCurrent.children[1].innerHTML = `As of ${time}`;
-    } catch {
-      console.log("err");
+  function showTime(offset) {
+    let time = getTimeAndDay(offset);
+    weatherDataCurrent.children[1].innerHTML = `As of ${time.time}`;
+    for (let i = 0; i < 7; i += 1) {
+      dayNames[i].innerHTML = time.upcomingDays[i];
     }
   }
 
@@ -63,8 +68,6 @@ const weatherDisplayModule = (() => {
 
   const displayToday = (target) => {
     const today = target.daily[0];
-    console.log(today.precipitation);
-    console.log(additional);
     timeOfDay[1].children[1].innerHTML =
       today.temperature.morn + "<strong>°</strong>";
     timeOfDay[2].children[1].innerHTML =
@@ -80,6 +83,27 @@ const weatherDisplayModule = (() => {
     additional.children[2].innerHTML = `Wind Speed: <strong>${today.windSpeed}mph</strong>`;
   };
 
+  const displayDaily = (target) => {
+    const daily = target.daily;
+    daily.shift();
+    let time = getTimeAndDay();
+    for (let i = 0; i < daily.length; i += 1) {
+      daysTemperature[
+        i
+      ].innerHTML = `${daily[i].temperature.day} <strong>°</strong>`;
+      daysIcon[i].src = daily[i].icon;
+      daysHumidity[i].innerHTML = `${daily[i].humidity} <strong>%</strong>`;
+      daily[i].precipitation === undefined
+        ? (daysPrecipitation[
+            i
+          ].innerHTML = `Precipitation: <strong>0mm</strong>`)
+        : (daysPrecipitation[
+            i
+          ].innerHTML = `Precipitation: <strong>${daily[i].precipitation}mm</strong>`);
+      daysWindSpeed[i].innerHTML = `${daily[i].windSpeed} <strong>mph</strong>`;
+    }
+  };
+
   const showContainers = () => {
     weatherContainers.forEach((container) => {
       container.classList.remove("hidden");
@@ -89,7 +113,7 @@ const weatherDisplayModule = (() => {
     });
   };
 
-  return { displayCurrent, displayToday, showContainers };
+  return { displayCurrent, displayToday, showContainers, displayDaily };
 })();
 
 export default weatherDisplayModule;

@@ -23,4 +23,7 @@ main {
 .max-width {
     max-width: 1400px;
     margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 22% 39% 39%;
 }

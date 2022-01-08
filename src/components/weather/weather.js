@@ -43,7 +43,6 @@ const weatherModule = (() => {
         }
       );
       const json = await getLocation.json();
-      console.log(json);
       storeWeather(json, fullfilled);
     } catch (error) {
       console.log(error);
@@ -77,9 +76,9 @@ const weatherModule = (() => {
         windSpeed: mainData.daily[x].wind_speed,
       });
     }
-    console.log(weather);
     weatherDisplayModule.displayCurrent(weather, offsetTime);
     weatherDisplayModule.displayToday(weather);
+    weatherDisplayModule.displayDaily(weather);
   }
 
   return { getCoordinates, getLocation };
