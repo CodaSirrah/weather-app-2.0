@@ -94,12 +94,10 @@ const weatherDisplayModule = (() => {
       daysIcon[i].src = daily[i].icon;
       daysHumidity[i].innerHTML = `${daily[i].humidity} <strong>%</strong>`;
       daily[i].precipitation === undefined
-        ? (daysPrecipitation[
-            i
-          ].innerHTML = `Precipitation: <strong>0mm</strong>`)
+        ? (daysPrecipitation[i].innerHTML = `0 <strong>mm</strong>`)
         : (daysPrecipitation[
             i
-          ].innerHTML = `Precipitation: <strong>${daily[i].precipitation}mm</strong>`);
+          ].innerHTML = `${daily[i].precipitation} <strong>mm</strong>`);
       daysWindSpeed[i].innerHTML = `${daily[i].windSpeed} <strong>mph</strong>`;
     }
   };
