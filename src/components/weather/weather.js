@@ -15,7 +15,7 @@ const weatherModule = (() => {
   async function getCoordinates(target) {
     try {
       const getCity = await fetch(
-        `http://api.openweathermap.org/data/2.5/forecast?q=${target}&appid=4cb92c5e21465a098adfe5ac36998bda`,
+        `https://api.openweathermap.org/data/2.5/forecast?q=${target}&appid=4cb92c5e21465a098adfe5ac36998bda`,
         {
           mode: "cors",
         }
