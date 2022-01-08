@@ -55,7 +55,7 @@ const weatherDisplayModule = (() => {
   const displayCurrent = (target, offset) => {
     const place = { city: target.city, country: target.country };
     const current = target.current;
-    weatherDataCurrent.children[0].innerHTML = `${place.city}, ${place.country}`;
+    weatherDataCurrent.children[0].innerHTML = `${place.city}, '${place.country}'`;
     document.querySelector(".current-temp").innerHTML = `${convertCelsius(
       current.temperature
     )}°`;
