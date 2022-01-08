@@ -69,13 +69,13 @@ const weatherDisplayModule = (() => {
   const displayToday = (target) => {
     const today = target.daily[0];
     timeOfDay[1].children[1].innerHTML =
-      today.temperature.morn + "<strong>°</strong>";
+      convertCelsius(today.temperature.morn) + "<strong>°</strong>";
     timeOfDay[2].children[1].innerHTML =
-      today.temperature.day + "<strong>°</strong>";
+      convertCelsius(today.temperature.day) + "<strong>°</strong>";
     timeOfDay[3].children[1].innerHTML =
-      today.temperature.eve + "<strong>°</strong>";
+      convertCelsius(today.temperature.eve) + "<strong>°</strong>";
     timeOfDay[4].children[1].innerHTML =
-      today.temperature.night + "<strong>°</strong>";
+      convertCelsius(today.temperature.night) + "<strong>°</strong>";
     additional.children[0].innerHTML = `Humidity: <strong>${today.humidity}%</strong>`;
     today.precipitation === undefined
       ? (additional.children[1].innerHTML = `Precipitation: <strong>0mm</strong>`)
@@ -88,9 +88,9 @@ const weatherDisplayModule = (() => {
     daily.shift();
     let time = getTimeAndDay();
     for (let i = 0; i < daily.length; i += 1) {
-      daysTemperature[
-        i
-      ].innerHTML = `${daily[i].temperature.day} <strong>°</strong>`;
+      daysTemperature[i].innerHTML = `${convertCelsius(
+        daily[i].temperature.day
+      )} <strong>°</strong>`;
       daysIcon[i].src = daily[i].icon;
       daysHumidity[i].innerHTML = `${daily[i].humidity} <strong>%</strong>`;
       daily[i].precipitation === undefined

@@ -10,6 +10,13 @@ const getTimeAndDay = (offset) => {
   let hours = addZeroes(date.getUTCHours()) + offset;
   let minutes = addZeroes(date.getUTCMinutes());
   let seconds = addZeroes(date.getUTCSeconds());
+  if (hours > 24) {
+    hours -= 24;
+    hours = addZeroes(hours);
+  } else if (hours < 0) {
+    hours += 24;
+    hours = addZeroes(hours);
+  }
   let time = `${hours}:${minutes}:${seconds}`;
   let day = date.getUTCDay();
   let actualDay = "";
