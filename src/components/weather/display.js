@@ -13,6 +13,7 @@ const daysHumidity = document.querySelectorAll(".days-humidity");
 const daysPrecipitation = document.querySelectorAll(".days-precipitation");
 const daysWindSpeed = document.querySelectorAll(".days-wind-speed");
 const dayNames = document.querySelectorAll(".day-name");
+const dailyContainer = document.querySelector(".weather-container-daily");
 
 const convertCelsius = (f) => {
   let c = (f - 32) * (5 / 9);
@@ -109,6 +110,10 @@ const weatherDisplayModule = (() => {
         container.classList.remove("visually-hidden");
       }, 20);
     });
+    dailyContainer.classList.remove("hidden");
+    window.setTimeout(() => {
+      dailyContainer.classList.remove("visually-hidden");
+    }, 20);
   };
 
   return { displayCurrent, displayToday, showContainers, displayDaily };

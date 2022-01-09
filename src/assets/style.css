@@ -22,8 +22,18 @@ main {
 
 .max-width {
     max-width: 1400px;
-    margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 22% 39% 39%;
+    margin: 0 auto;
 }
+
+@media screen and (max-width: 1150px) {
+    .max-width { 
+        grid-template-columns: 1fr;
+    }
+    .bg-image {
+        height: 200%;
+    }
+}
+
+
