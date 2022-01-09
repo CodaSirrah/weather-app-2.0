@@ -14,11 +14,13 @@
         <div class="overflow">
           <div class="input-container hidden visually-hidden">
             <h1>Enter Your City</h1>
-            <label for="city">City</label>
-            <input type="text" for="city" name="city" class="city-input">
+            <div>
+              <label for="city">City</label>
+              <input type="text" for="city" name="city" class="city-input">
+            </div>
           </div>
         </div>
-        <section class="weather-container current">
+        <section class="weather-container current hidden visually-hidden">
           <h3 class="align bold">London, 'GB'</h3>
           <p class="align thin">As of 19:16 GMT</p>
           <div class="current-weather">
@@ -27,11 +29,11 @@
           </div>
           <p class="current-description align">A Few Clouds</p>
         </section>
-        <section class="weather-container today">
+        <section class="weather-container today hidden visually-hidden">
           <div class="daily-info">
             <p class="align bold">Your Forecast For Today</p>
           </div>
-          <div class="time-of-day">
+          <div class="time-of-day heading">
             <h3>Time-of-Day:</h3>
             <p>Temperature:</p>
           </div>
@@ -57,7 +59,7 @@
               <p>Wind Speed:<strong></strong></p>
             </div>
         </section>
-        <section class="weather-container-daily ">
+        <section class="weather-container-daily hidden visually-hidden">
           <div class="days-container">
             <div class="days">
               <div class="day-name-container"><p class="day-name">MON</p></div>
