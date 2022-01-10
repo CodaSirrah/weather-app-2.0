@@ -14,6 +14,7 @@ const daysPrecipitation = document.querySelectorAll(".days-precipitation");
 const daysWindSpeed = document.querySelectorAll(".days-wind-speed");
 const dayNames = document.querySelectorAll(".day-name");
 const dailyContainer = document.querySelector(".weather-container-daily");
+const bgFiller = document.querySelector(".bg-image-filler");
 
 const convertCelsius = (f) => {
   let c = (f - 32) * (5 / 9);
@@ -104,6 +105,7 @@ const weatherDisplayModule = (() => {
   };
 
   const showContainers = () => {
+    bgFiller.classList.add("hidden");
     weatherContainers.forEach((container) => {
       container.classList.remove("hidden");
       window.setTimeout(() => {

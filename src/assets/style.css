@@ -18,6 +18,7 @@ main {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    height: 100vh;
 }
 
 .max-width {
@@ -27,12 +28,29 @@ main {
     margin: 0 auto;
 }
 
+.bg-image-filler {
+    display: block;
+    height: 720px;
+    float: left;
+}
+
 @media screen and (max-width: 1150px) {
     .max-width { 
         grid-template-columns: 1fr;
     }
     .bg-image {
         height: 200%;
+    }
+}
+
+@media screen and (min-width: 1200px) and (max-height: 820px) {
+    .bg-image {
+        height: 200%;
+    }
+    .bg-image-filler {
+        display: block;
+        height: 800px;
+        float: left;
     }
 }
 
