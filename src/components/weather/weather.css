@@ -253,6 +253,8 @@ strong {
     }
 }
 
+
+
 @media screen and (max-height: 900px) and (min-width:1151px) {
     .weather-container.current, .weather-container-daily {
        margin-top: -20px;

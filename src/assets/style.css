@@ -30,7 +30,7 @@ main {
 
 .bg-image-filler {
     display: block;
-    height: 720px;
+    height: 100vh;
     float: left;
 }
 
@@ -47,11 +47,7 @@ main {
     .bg-image {
         height: 200%;
     }
-    .bg-image-filler {
-        display: block;
-        height: 800px;
-        float: left;
-    }
+
 }
 
 
